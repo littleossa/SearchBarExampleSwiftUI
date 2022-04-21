@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var searchText = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        // Compare searchable with Hand-made SearchBar
+        NavigationView {
+            VStack(spacing: 15) {
+                Text("SwiftUI Searchable↑")
+                    .searchable(text: $searchText)
+                
+                SearchBar(text: $searchText)
+                
+                Text("Hand-made SearchBar↑")
+                
+                Spacer()
+            }
+        }
     }
 }
 
